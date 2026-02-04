@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philippine Red Cross - Humanitarian Aid & Services</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Emergency Alert Banner -->
+    <div class="alert-banner" id="emergencyAlert">
+        <span class="alert-icon">⚠️</span>
+        <span id="alertMessage">Emergency: Typhoon Alert in Metro Manila. Volunteers needed.</span>
+        <button class="alert-close" onclick="closeAlert()">&times;</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-cross" style="color: #D32F2F;"></i>
+                <span>Red Cross PH</span>
+            </a>
+            <button class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="services.html"><i class="fas fa-hands-helping"></i> Services</a></li>
+                <li><a href="events.html"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                <li><a href="volunteer.html"><i class="fas fa-heart"></i> Volunteer</a></li>
+                <li><a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a></li>
+                <li><a href="#" class="btn-donate" onclick="openDonationModal()">Donate Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Saving Lives, Serving Humanity</h1>
+            <p>The Philippine Red Cross provides emergency assistance, disaster relief, and healthcare services to vulnerable communities across the Philippines.</p>
+            <div class="hero-buttons">
+                <a href="volunteer.html" class="btn-primary">Become a Volunteer</a>
+                <a href="#" class="btn-secondary" onclick="openDonationModal()">Make a Donation</a>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-card">
+                <i class="fas fa-tint"></i>
+                <h3 id="bloodDonations">15,234</h3>
+                <p>Blood Donations This Month</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-users"></i>
+                <h3 id="activeVolunteers">8,452</h3>
+                <p>Active Volunteers</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-hand-holding-heart"></i>
+                <h3 id="livesSaved">25,678</h3>
+                <p>Lives Saved This Year</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Donation Tracker -->
+    <section class="donation-tracker">
+        <h2>Live Donation Campaigns</h2>
+        <div class="tracker-container">
+            <div class="campaign-tracker">
+                <h3>Emergency Relief Fund</h3>
+                <div class="progress-bar">
+                    <div class="progress" id="relief-progress"></div>
+                </div>
+                <p id="relief-amount">₱325,000 / ₱500,000</p>
+            </div>
+            <div class="campaign-tracker">
+                <h3>Medical Supplies</h3>
+                <div class="progress-bar">
+                    <div class="progress" id="medical-progress"></div>
+                </div>
+                <p id="medical-amount">₱210,000 / ₱300,000</p>
+            </div>
+            <div class="campaign-tracker">
+                <h3>Community Programs</h3>
+                <div class="progress-bar">
+                    <div class="progress" id="community-progress"></div>
+                </div>
+                <p id="community-amount">₱125,000 / ₱200,000</p>
+            </div>
+        </div>
+        <button class="btn-donate" onclick="openDonationModal()">Contribute Now</button>
+    </section>
+
+    <!-- Urgent Services -->
+    <section class="urgent-services">
+        <h2>Urgent Needs Right Now</h2>
+        <div class="services-grid" id="urgentServicesGrid">
+            <!-- Dynamically loaded from JavaScript -->
+        </div>
+    </section>
+
+    <!-- Recent Alerts -->
+    <section class="alerts-section">
+        <h2>Recent Emergency Alerts</h2>
+        <div class="alerts-container" id="alertsContainer">
+            <!-- Alerts loaded from JavaScript -->
+        </div>
+        <div class="alert-subscription">
+            <h3>Get Emergency Alerts</h3>
+            <form id="alertSubscriptionForm">
+                <input type="email" placeholder="Enter your email" required>
+                <select id="alertRegion">
+                    <option value="">Select Region</option>
+                    <option value="NCR">Metro Manila</option>
+                    <option value="Region4A">CALABARZON</option>
+                    <option value="Region3">Central Luzon</option>
+                    <option value="Region7">Central Visayas</option>
+                </select>
+                <button type="submit" class="btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Donation Modal -->
+    <div class="modal" id="donationModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeDonationModal()">&times;</span>
+            <h2>Make a Donation</h2>
+            <form id="donationForm">
+                <div class="form-group">
+                    <label>Amount (PHP)</label>
+                    <div class="amount-options">
+                        <button type="button" class="amount-btn" data-amount="500">₱500</button>
+                        <button type="button" class="amount-btn" data-amount="1000">₱1,000</button>
+                        <button type="button" class="amount-btn" data-amount="5000">₱5,000</button>
+                        <input type="number" id="customAmount" placeholder="Custom amount">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Campaign</label>
+                    <select id="donationCampaign" required>
+                        <option value="emergency">Emergency Relief Fund</option>
+                        <option value="medical">Medical Supplies</option>
+                        <option value="community">Community Programs</option>
+                        <option value="general">General Donation</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="donorName" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="donorEmail" required>
+                </div>
+                <button type="submit" class="btn-primary">Donate Now</button>
+            </form>
+            <div id="donationResult" class="hidden"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Philippine Red Cross</h3>
+                <p>24/7 Emergency Hotline: <strong>143</strong></p>
+                <p>Blood Service: <strong>8527-8385</strong></p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Philippine Red Cross. All rights reserved.</p>
+            <p>This is a simulation website for educational purposes.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
