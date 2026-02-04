@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Philippine Red Cross</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <i class="fas fa-cross" style="color: #D32F2F;"></i>
+            <span>Red Cross PH</span>
+        </a>
+        <button class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-menu" id="nav-menu">
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="services.html"><i class="fas fa-hands-helping"></i> Services</a></li>
+            <li><a href="events.html"><i class="fas fa-calendar-alt"></i> Events</a></li>
+            <li><a href="volunteer.html"><i class="fas fa-heart"></i> Volunteer</a></li>
+            <li><a href="contact.html" class="active"><i class="fas fa-phone-alt"></i> Contact</a></li>
+            <li><a href="#" class="btn-donate" onclick="openDonationModal()">Donate Now</a></li>
+            <!-- Auth buttons will be added here by JavaScript -->
+        </ul>
+    </div>
+</nav>
+
+    <section class="page-hero">
+        <h1>Contact Philippine Red Cross</h1>
+        <p>We're here to help 24/7. Reach out for emergencies, inquiries, or support.</p>
+    </section>
+
+    <!-- Emergency Contacts -->
+    <section class="emergency-contacts">
+        <h2>Emergency Hotlines</h2>
+        <div class="emergency-grid">
+            <div class="emergency-card critical">
+                <i class="fas fa-phone-alt"></i>
+                <h3>National Emergency</h3>
+                <p class="contact-number">143</p>
+                <p>24/7 Emergency Response</p>
+            </div>
+            <div class="emergency-card">
+                <i class="fas fa-tint"></i>
+                <h3>Blood Services</h3>
+                <p class="contact-number">(02) 8527-8385</p>
+                <p>Blood donation inquiries</p>
+            </div>
+            <div class="emergency-card">
+                <i class="fas fa-ambulance"></i>
+                <h3>Ambulance</h3>
+                <p class="contact-number">(02) 8790-2300</p>
+                <p>Emergency medical transport</p>
+            </div>
+            <div class="emergency-card">
+                <i class="fas fa-headset"></i>
+                <h3>Disaster Operations</h3>
+                <p class="contact-number">(02) 8790-2300 loc. 114</p>
+                <p>Disaster response coordination</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact-form-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Get In Touch</h2>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Main Headquarters</h4>
+                        <p>37 EDSA, Mandaluyong City, Metro Manila</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>Operating Hours</h4>
+                        <p>Monday to Friday: 8:00 AM - 5:00 PM</p>
+                        <p>Emergency Services: 24/7</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email Address</h4>
+                        <p>info@redcross.org.ph</p>
+                        <p>donations@redcross.org.ph</p>
+                    </div>
+                </div>
+                <div class="social-contact">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h2>Send us a Message</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="contactName">Full Name *</label>
+                        <input type="text" id="contactName" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactEmail">Email Address *</label>
+                            <input type="email" id="contactEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPhone">Phone Number</label>
+                            <input type="tel" id="contactPhone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactType">Inquiry Type *</label>
+                        <select id="contactType" required>
+                            <option value="">Select inquiry type</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="donation">Donation Inquiry</option>
+                            <option value="volunteer">Volunteer Inquiry</option>
+                            <option value="blood">Blood Services</option>
+                            <option value="training">Training Programs</option>
+                            <option value="emergency">Emergency Assistance</option>
+                            <option value="partnership">Partnership Opportunity</option>
+                            <option value="feedback">Feedback/Suggestion</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMessage">Message *</label>
+                        <textarea id="contactMessage" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="newsletterOptIn">
+                            Subscribe to our newsletter for updates
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+                <div id="contactResponse" class="response-message"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Quick Links -->
+    <section class="faq-quick">
+        <h2>Quick Answers</h2>
+        <div class="faq-cards">
+            <div class="faq-card">
+                <h3>How can I donate blood?</h3>
+                <p>Visit any Red Cross blood center. No appointment needed for walk-ins.</p>
+                <a href="services.html" class="link">Learn more →</a>
+            </div>
+            <div class="faq-card">
+                <h3>Where can I get first aid training?</h3>
+                <p>Check our Events page for training schedules or contact your local chapter.</p>
+                <a href="events.html" class="link">View schedule →</a>
+            </div>
+            <div class="faq-card">
+                <h3>How do I become a volunteer?</h3>
+                <p>Fill out our volunteer application form online or visit our headquarters.</p>
+                <a href="volunteer.html" class="link">Apply now →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget" id="chatbotWidget">
+        <button class="chatbot-toggle" onclick="toggleChatbot()">
+            <i class="fas fa-comment-dots"></i>
+            <span class="notification-badge" id="chatNotification">1</span>
+        </button>
+        <div class="chatbot-container" id="chatbotContainer">
+            <div class="chatbot-header">
+                <h3>Red Cross Assistant</h3>
+                <button class="chatbot-close" onclick="toggleChatbot()">&times;</button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="message bot">
+                    <p>Hello! I'm your Red Cross assistant. How can I help you today?</p>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbotInput" placeholder="Type your question...">
+                <button onclick="sendChatMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+            <div class="quick-questions">
+                <button class="quick-btn" onclick="askQuickQuestion('How to donate blood?')">Blood Donation</button>
+                <button class="quick-btn" onclick="askQuickQuestion('Emergency hotline')">Emergency</button>
+                <button class="quick-btn" onclick="askQuickQuestion('Volunteer requirements')">Volunteer</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <!-- Same footer content -->
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
